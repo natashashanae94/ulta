@@ -1,0 +1,35 @@
+// Browser Prefixes
+@mixin transform($transform-mix...) {
+	-webkit-transform: $transform-mix;
+	-moz-transform: $transform-mix;
+	-ms-transform: $transform-mix;
+	transform: $transform-mix;
+}
+
+// Rotate
+@mixin rotate ($deg) { 
+	@include transform(rotate(#{$deg}deg));
+}
+
+// Scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+// Translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// Skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+// Transform Origin
+@mixin transform-origin ($origin) {
+    	-webkit-transform-origin: $origin;
+    	-moz-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	transform-origin: $origin;
+}
