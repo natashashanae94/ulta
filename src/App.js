@@ -8,13 +8,13 @@ function App() {
     <div className="App">
       <div className={svgClass}>
         <CircleBar
-          percentage={40}
           speed={1}
           size={500}
-          strokeWidth={0}
+          progress={100}
+          strokeWidth={1}
           circleOneStroke='#fff'
           circleTwoStroke='#ff0000'
-          trailSpaced='false'
+          trailSpaced={false}
         />
       </div>
     </div>
