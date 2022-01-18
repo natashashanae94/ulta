@@ -6,8 +6,11 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "browserslist": "^4.17.5",
     "classnames": "^2.3.1",
+    "glob-parent": "^6.0.2",
     "react": "^17.0.2",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^17.0.2",
     "react-scripts": "^4.0.3",
     "styled-components": "^5.3.3",
@@ -38,7 +41,6 @@
     ]
   },
   "devDependencies": {
-    "babel-loader": "^8.2.3",
     "sass": "^1.43.4"
   }
 }

@@ -1,19 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
-import CircleBar from './components/CircleBar/CircleBar';
+import ClockDial from './components/Clock/ClockDial';
 
 function App() {
   const svgClass = classNames('clock', 'projects_clock')
   return (
     <div className="App">
       <div className={svgClass}>
-        <CircleBar
+        <ClockDial
           speed={1}
           size={500}
           progress={100}
           strokeWidth={1}
           circleOneStroke='#fff'
-          circleTwoStroke='#ff0000'
+          circleTwoStroke='#fff'
           trailSpaced={false}
         />
       </div>
