@@ -86,7 +86,7 @@ const ClockDial = props => {
                     r={radius}
                     strokeWidth={2.2}
                     strokeMiterlimit={10}
-                    strokeDasharray={[1485.72, 1495.72]}
+                    strokeDasharray={circumference} //[1485.72, 1495.72]
                     strokeDashoffset={offset}
                 />
               
