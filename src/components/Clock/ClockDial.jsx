@@ -75,7 +75,8 @@ const ClockDial = props => {
                     strokeMiterlimit={10}
                     strokeWidth={0.923}
                     strokeDasharray={trailSpaced ? 1 : 0}
-                />
+                    strokeDashoffset={2e-05}
+                /> 
                 <circle
                     className="svg-circle-progress"
                     ref={circleRef}
