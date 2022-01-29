@@ -15,8 +15,6 @@
     stroke: #fff;
 }
 
-
-
 /*END GLOBAL*/
 
 body {
@@ -39,6 +37,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+    @media  (min-width: 1400px) {
+        font-size: 200px;
+    }
 }
 
 .svg {
@@ -87,20 +88,22 @@ body {
     }
 }
 
-@media (min-width: 1400px) {
-    .projects_clock {
-        font-size: 200px;
+
+@media (min-width: 768px) {
+    .clock {
+        font-size: 94px;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1400px) {
+@media (min-width: 992px) {
     .clock {
         font-size: 125px;
     }
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
-    .clock {
-        font-size: 94px;
+@media  (min-width: 1400px) {
+    .projects_clock {
+        font-size: 200px;
     }
 }
+

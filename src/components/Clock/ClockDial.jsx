@@ -90,7 +90,7 @@ const ClockDial = props => {
                     strokeDashoffset={offset}
                 />
               
-                  <ClockHour time={hours} />
+                  <ClockHour time={hours}/>
                   <ClockMinute time={minutes}/>
             </svg>
         </>    
