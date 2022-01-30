@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 //stylesheet
 import '../../assets/css/_circlebar.scss';
@@ -9,23 +9,25 @@ const ClockHour = ({time, matrix}) => {
     const [focus, setFocus] = useState(false);
 
     const handleFocusEvent = (event) => {
-        console.log(JSON.parse(event.target.dataset.info));
-    }
+        setFocus(true);
 
-    if(focus) {
-        handleFocusEvent();
-    }
+        //identify the name of the hour dot; print console value.
+        let obj = event.target.dataset.info;
+        console.log(obj);
 
-      // if(circle) {
-        //     let target = circle.getAttribute('key');
-        //     console.log(target);
-        // }
+          
+
+        //if console value matches hour dot name, define transform style.
+        
+        
+        
+    }
 
     const transform =  'matrix(1,0,0,1,0,0)';
-
     const hoursStyle = {
         transition: 'all .3s'
     }
+
 
     return(
         <>    
@@ -33,7 +35,7 @@ const ClockHour = ({time, matrix}) => {
            {time.map((hour, index) => (
                <>
                 <circle
-                    onMouseEnter={() => setFocus(true)}
+                    onMouseEnter={(e) => handleFocusEvent(e)}
                     onMouseLeave={() => setFocus(false)}  
                     className="clock__dial__hour" data-info={hour.name} stroke-miterlimit={10} cx={hour.cx} cy={hour.cy} r={60} key={index}>
                 </circle>
