@@ -19,9 +19,9 @@ const ClockHour = ({time, matrix}) => {
 
         
         // if(event.target) {
-        //     setFocus(true);
+        //    setFocus(true);
         //     event.target.style.fill= '#fff';
-        // }
+        // // }
 
         //if another div has the same matching attr value as target div, apply styles
         
