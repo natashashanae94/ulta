@@ -85,6 +85,9 @@ body {
 
     .clock__dial__hour__circle {
         fill: #fff;
+        transition: 'all .3s';
+        transform-origin: '0px 0px 0px';
+        fill-opacity: 0;
     }
 }
 
