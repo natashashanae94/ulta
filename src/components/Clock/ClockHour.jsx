@@ -7,47 +7,78 @@ const ClockHour = ({time, matrix}) => {
 
     //Detect if the mouse approaches an hour dot
     const [focus, setFocus] = useState(false);
+    const [targetHour, setTargetHour] = useState("");
+    const [click, setClick] = useState(false);
+    const [clickedHour, setClickedHour] = useState()
+
+    const selectHour = (event) => {
+        console.log('hour has been clicked!');
+        setClick(true);
+        console.log(click);
+
+    }
 
     const handleFocusEvent = (event) => {
         //identify the name of the hour dot; print console value.
-        //let obj = event.target.dataset.info;
+        let obj = event.target.dataset.info;
+        setFocus(true);
 
-         //if div is the event target, define its transform style.
-        let circle = document.querySelector('.clock__dial__hour__circle[data-info]')
-        console.log(circle);   
-        circle.style.fill='#fff';
+        let currentHour = event.target.getAttribute("data-info");
+        let expandCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
 
-        
-        // if(event.target) {
-        //    setFocus(true);
-        //     event.target.style.fill= '#fff';
-        // // }
+        setTargetHour(currentHour);
 
-        //if another div has the same matching attr value as target div, apply styles
-        
+        //if div is the event target, define its transform style.
+        //circle.classList.add("active");
+        //circle.style.fill='#fff';    
     }
 
-    const transform = 'matrix(1,0,0,1,0,0,)';
+    const handleLeaveFocusEvent = (event) => {
+        setFocus(false);
+        setTargetHour("");
+        let currentHour = event.target.getAttribute("data-info");
+        let fillCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
+    }
+
+    const transform = 'matrix(1,0,0,1,0,0)';
 
     const hoursStyle = {
         transition: 'all .3s'
     }
 
-
     return(
         <>    
            <g className="clock__dial__hours">
            {time.map((hour, index) => (
-            <>
+            <React.Fragment key={index}>
                 <circle
                     onMouseEnter={(e) => handleFocusEvent(e)}
-                    onMouseLeave={() => setFocus(false)}  
-                    className="clock__dial__hour" data-info={hour.name} stroke-miterlimit={10} cx={hour.cx} cy={hour.cy} r={60} key={index}>
+                    onMouseLeave={(e) => handleLeaveFocusEvent(e)}
+                    onClick={(e) => selectHour(e)}
+
+                    className="clock__dial__hour" 
+                    data-info={hour.name} 
+                    strokeMiterlimit={10} 
+                    cx={hour.cx} 
+                    cy={hour.cy} 
+                    r={60} 
+                    key={index}>
                 </circle>
                 <circle 
-                    className="clock__dial__hour__circle" data-info={hour.name} stroke-miterlimit={10} fill={'none'} cx={hour.cx} cy={hour.cy} r={11} style={hoursStyle} transform={focus ? transform : hour.matrix } stroke-opacity={focus ? 1 : 0.4} data-svg-origin={hour.origin}>
+                    className="clock__dial__hour__circle" 
+                    data-info={hour.name} 
+                    strokeMiterlimit={10} 
+                    fill={hour.name === targetHour && click ? '#fff': 'none'} 
+                    cx={hour.cx} 
+                    cy={hour.cy} 
+                    r={11} 
+                    style={hoursStyle} 
+                    transform={hour.name === targetHour ? transform : hour.matrix} 
+                    strokeOpacity={hour.name === targetHour ? 1 : 0.4}
+                    fillOpacity={hour.name === targetHour && click ? 1 : 0}
+                    data-svg-origin={hour.origin}>
                 </circle>  
-            </>
+            </React.Fragment>
             ))}                
            </g> 
         </>
