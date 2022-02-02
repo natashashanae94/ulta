@@ -9,14 +9,7 @@ const ClockHour = ({time, matrix}) => {
     const [focus, setFocus] = useState(false);
     const [targetHour, setTargetHour] = useState("");
     const [click, setClick] = useState(false);
-    const [clickedHour, setClickedHour] = useState()
-
-    const selectHour = (event) => {
-        console.log('hour has been clicked!');
-        setClick(true);
-        console.log(click);
-
-    }
+    const [clickedHour, setClickedHour] = useState("")
 
     const handleFocusEvent = (event) => {
         //identify the name of the hour dot; print console value.
@@ -36,8 +29,17 @@ const ClockHour = ({time, matrix}) => {
     const handleLeaveFocusEvent = (event) => {
         setFocus(false);
         setTargetHour("");
+    
+    }
+
+    const handleClickEvent = (event) => {
+        console.log('hour has been clicked!');
+        setClick(true);
+    
         let currentHour = event.target.getAttribute("data-info");
         let fillCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
+
+        setClickedHour(currentHour);
     }
 
     const transform = 'matrix(1,0,0,1,0,0)';
@@ -54,7 +56,7 @@ const ClockHour = ({time, matrix}) => {
                 <circle
                     onMouseEnter={(e) => handleFocusEvent(e)}
                     onMouseLeave={(e) => handleLeaveFocusEvent(e)}
-                    onClick={(e) => selectHour(e)}
+                    onClick={(e) => handleClickEvent(e)}
 
                     className="clock__dial__hour" 
                     data-info={hour.name} 
@@ -68,14 +70,14 @@ const ClockHour = ({time, matrix}) => {
                     className="clock__dial__hour__circle" 
                     data-info={hour.name} 
                     strokeMiterlimit={10} 
-                    fill={hour.name === targetHour && click ? '#fff': 'none'} 
+                    fill={hour.name === clickedHour ? '#fff': 'none'} 
                     cx={hour.cx} 
                     cy={hour.cy} 
                     r={11} 
                     style={hoursStyle} 
-                    transform={hour.name === targetHour ? transform : hour.matrix} 
+                    transform={hour.name === targetHour || hour.name === clickedHour ? transform : hour.matrix} 
                     strokeOpacity={hour.name === targetHour ? 1 : 0.4}
-                    fillOpacity={hour.name === targetHour && click ? 1 : 0}
+                    fillOpacity={hour.name === clickedHour ? 1 : 0}
                     data-svg-origin={hour.origin}>
                 </circle>  
             </React.Fragment>
