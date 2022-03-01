@@ -10,7 +10,7 @@ function App() {
         <ClockDial
           speed={1}
           size={500}
-          progress={92.3}
+          progress={100}
           strokeWidth={1}
           circleOneStroke='#fff'
           circleTwoStroke='#fff'

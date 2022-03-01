@@ -21,6 +21,10 @@ body {
     background: #000;
 }
 
+.svg-transition {
+    transition: all 0.7s ease-in-out;
+}
+
 .clock {
     position: relative;
     z-index: 1;

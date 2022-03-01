@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 //stylesheet
 import '../../assets/css/_circlebar.scss';
 
-const ClockHour = ({time, matrix}) => {
+const ClockHour = ({time, hourClick}) => {
 
     //Detect if the mouse approaches an hour dot
     const [focus, setFocus] = useState(false);
@@ -39,7 +39,19 @@ const ClockHour = ({time, matrix}) => {
         let currentHour = event.target.getAttribute("data-info");
         let fillCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
 
+        let bigCircle =  document.querySelector('.svg-circle-progress');
+
+        bigCircle.classList.add('svg-transition');
+        
+        let currentHourProgress = event.target.getAttribute("progress");
         setClickedHour(currentHour);
+        console.log(currentHourProgress);
+
+        hourClick(parseInt(currentHourProgress));
+
+        setTimeout(() => {
+            bigCircle.classList.remove('svg-transition');  
+        }, 700);   
     }
 
     const transform = 'matrix(1,0,0,1,0,0)';
@@ -59,6 +71,7 @@ const ClockHour = ({time, matrix}) => {
                     onClick={(e) => handleClickEvent(e)}
 
                     className="clock__dial__hour" 
+                    progress={hour.progress}
                     data-info={hour.name} 
                     strokeMiterlimit={10} 
                     cx={hour.cx} 

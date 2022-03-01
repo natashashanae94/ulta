@@ -50,8 +50,28 @@ const ClockDial = props => {
           setOffset(progressOffset);        
       }, 30);     
     };
+
+    const hourLocation = (hourProgress) => {
+      //set progressbar to hour.json progress
+
+      setProgressBar(hourProgress);
+      const progressOffset = ((100 - hourProgress) / 100) * circumference;
+      setOffset(progressOffset);
+  
+      // setTimeout(() => {
+      //   let count = progressBar;
+      //     while(count < hourProgress) {
+      //       setProgressBar(count);
+      //       const progressOffset = ((100 - hourProgress) / 100) * circumference;
+      //       setOffset(progressOffset);  
+
+      //       count += 1;
+      //     }      
+      // }, 30);     
+    }
   
     useEffect(() => {
+      console.log(offset, progressBar);
       if (progressBar < progress) {
         if(hover) return;
         else updatePercentage();
@@ -90,8 +110,8 @@ const ClockDial = props => {
                     strokeDashoffset={offset}
                 />
               
-                  <ClockHour time={hours}/>
-                  <ClockMinute time={minutes}/>
+                <ClockHour time={hours} hourClick={hourLocation} />
+                <ClockMinute time={minutes}/>
             </svg>
         </>    
     );
