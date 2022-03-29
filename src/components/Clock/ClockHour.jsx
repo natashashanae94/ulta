@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 //stylesheet
 import '../../assets/css/_circlebar.scss';
 
-const ClockHour = ({time, hourClick}) => {
+const ClockHour = ({time, hourClick, transitionState}) => {
 
     //Detect if the mouse approaches an hour dot
     const [focus, setFocus] = useState(false);
@@ -16,14 +16,11 @@ const ClockHour = ({time, hourClick}) => {
         let obj = event.target.dataset.info;
         setFocus(true);
 
+        //Expand the current hour circle when hovered on.
         let currentHour = event.target.getAttribute("data-info");
         let expandCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
 
-        setTargetHour(currentHour);
-
-        //if div is the event target, define its transform style.
-        //circle.classList.add("active");
-        //circle.style.fill='#fff';    
+        setTargetHour(currentHour);  
     }
 
     const handleLeaveFocusEvent = (event) => {
@@ -33,25 +30,35 @@ const ClockHour = ({time, hourClick}) => {
     }
 
     const handleClickEvent = (event) => {
-        console.log('hour has been clicked!');
         setClick(true);
     
+        //Variables
         let currentHour = event.target.getAttribute("data-info");
         let fillCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
 
-        let bigCircle =  document.querySelector('.svg-circle-progress');
-
-        bigCircle.classList.add('svg-transition');
-        
-        let currentHourProgress = event.target.getAttribute("progress");
+        //Set current hour to 'clicked hour'
         setClickedHour(currentHour);
-        console.log(currentHourProgress);
+        console.log(`${currentHour} has been clicked!`);
 
+        //Add transition class to svg progress bar, then remove it after .7 seconds
+        let bigCircle =  document.querySelector('.svg-circle-progress');
+        bigCircle.classList.add('svg-transition');
+        setTimeout(() => {
+            bigCircle.classList.remove('svg-transition');
+        }, 700);   
+    
+
+        bigCircle.addEventListener('transitionend', function() {
+            console.log('transitionend ended');
+        });
+
+        transitionState();
+        
+        //Get the progress value from the current 'clicked hour', then send that prop value back
+        let currentHourProgress = event.target.getAttribute("progress");
+        console.log(currentHourProgress);
         hourClick(parseInt(currentHourProgress));
 
-        setTimeout(() => {
-            bigCircle.classList.remove('svg-transition');  
-        }, 700);   
     }
 
     const transform = 'matrix(1,0,0,1,0,0)';

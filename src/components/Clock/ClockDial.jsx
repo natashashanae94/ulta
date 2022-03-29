@@ -18,6 +18,7 @@ const ClockDial = props => {
     const [progressBar, setProgressBar] = useState(0);
     //pause the progressBar count on hover
     const [hover, setHover] = useState(false);
+    const [trans, setTransition] = useState(false);
 
     const circleRef = useRef(null);
 
@@ -69,11 +70,23 @@ const ClockDial = props => {
       //     }      
       // }, 30);     
     }
+
+    const transitioned = () => {
+      setTransition(true);
+      setTimeout(() => { 
+        setTransition(false);
+      }, 700);
+    }
   
     useEffect(() => {
       console.log(offset, progressBar);
       if (progressBar < progress) {
         if(hover) return;
+        else if(trans === true) {
+          setTimeout(() => {
+            updatePercentage();
+          }, 700);
+        }
         else updatePercentage();
       } else {
         setProgressBar(0);
@@ -110,7 +123,7 @@ const ClockDial = props => {
                     strokeDashoffset={offset}
                 />
               
-                <ClockHour time={hours} hourClick={hourLocation} />
+                <ClockHour time={hours} hourClick={hourLocation} transitionState={transitioned}/>
                 <ClockMinute time={minutes}/>
             </svg>
         </>    
