@@ -34,7 +34,7 @@ const ClockHour = ({time, hourClick, transitionState}) => {
     
         //Variables
         let currentHour = event.target.getAttribute("data-info");
-        let fillCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
+        //let fillCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
 
         //Set current hour to 'clicked hour'
         setClickedHour(currentHour);

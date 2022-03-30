@@ -58,17 +58,6 @@ const ClockDial = props => {
       setProgressBar(hourProgress);
       const progressOffset = ((100 - hourProgress) / 100) * circumference;
       setOffset(progressOffset);
-  
-      // setTimeout(() => {
-      //   let count = progressBar;
-      //     while(count < hourProgress) {
-      //       setProgressBar(count);
-      //       const progressOffset = ((100 - hourProgress) / 100) * circumference;
-      //       setOffset(progressOffset);  
-
-      //       count += 1;
-      //     }      
-      // }, 30);     
     }
 
     const transitioned = () => {
