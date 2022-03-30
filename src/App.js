@@ -14,7 +14,7 @@ function App() {
   const svgClass = classNames('clock', 'projects_clock')
   return (
     <div className="App">
-      <ClockBG bg={hours} />
+      <ClockBG bg={hours}/>
       <div className={svgClass}>
         <ClockDial
           speed={1}
