@@ -53,7 +53,7 @@ const ClockDial = props => {
     };
 
     const hourLocation = (hourProgress) => {
-      //set progressbar to hour.json progress
+    //set progressbar to hour.json progress
 
       setProgressBar(hourProgress);
       const progressOffset = ((100 - hourProgress) / 100) * circumference;

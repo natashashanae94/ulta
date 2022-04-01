@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 
 //stylesheets
 import '../../assets/css/_circlebar.scss';
 
-const ClockBG = (bg) => { 
+const ClockBG = ({bg}) => { 
     return(
         <>
             <div class="projects__panel projects__panel__left"></div>
@@ -11,7 +11,7 @@ const ClockBG = (bg) => {
 
             {bg.map((hour, index) => ( 
                 <React.Fragment key={index}>
-                    <article data-bgset={hour.bg}></article>
+                    <article class="project w-xs-100 h-xs-100 clearfix" style={{ backgroundImage: `url("${hour.bg}")`}}></article>
                 </React.Fragment>
             ))}
         </>
