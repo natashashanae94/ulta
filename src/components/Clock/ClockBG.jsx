@@ -21,7 +21,7 @@ const ClockBG = ({bg}) => {
                                         <div className="clock text-xs-center color-white project__clock visible-xs-block">
                                             <time className="clock__display">
                                                 <div className="clock__display__hours"></div>
-                                                <div className="clock__display__separator"></div>
+                                                <div className="clock__display__separator">h</div>
                                                 <div className="clock__display__minutes"></div>
                                             </time>
                                         </div>
@@ -30,7 +30,7 @@ const ClockBG = ({bg}) => {
                             </div>
                         </div>
                         <a href={url}>
-                            <div className="project__panel project__thumbnail"></div>
+                            <div className="project__panel project__thumbnail" style={{ backgroundImage: `url("${hour.bg}")`}}></div>
                         </a>
                     </article>
                 </React.Fragment>
