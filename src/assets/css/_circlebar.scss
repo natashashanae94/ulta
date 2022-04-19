@@ -99,11 +99,20 @@ body {
     .clock {
         font-size: 94px;
     }
+
+    .projects .project {
+        max-height: 100vh;
+    }
 }
 
 @media (min-width: 992px) {
     .clock {
         font-size: 125px;
+    }
+
+    .projects .project {
+        height: -webkit-calc(100vh - 165px);
+        height: calc(100vh - 165px);
     }
 }
 
