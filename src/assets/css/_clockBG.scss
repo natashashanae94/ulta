@@ -1,0 +1,19 @@
+@media (max-width: 767px) {
+    .projects .project__content__container {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    .projects .project {
+        height: -webkit-calc(100vh - 165px);
+        height: calc(100vh - 165px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .projects .project {
+        max-height: 100vh;
+    }
+}

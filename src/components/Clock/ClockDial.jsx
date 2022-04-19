@@ -9,9 +9,6 @@ import ClockMinute from '../Clock/ClockMinute';
 import {hours} from './data/hours';
 import {minutes} from './data/minutes';
 
-//stylesheets
-import '../../assets/css/_circlebar.scss';
-
 const ClockDial = props => {
   
     const [offset, setOffset] = useState(0);

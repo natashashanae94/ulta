@@ -1,8 +1,5 @@
 import React from 'react';
 
-//stylesheet
-import '../../assets/css/_circlebar.scss';
-
 const ClockMinute = ({time}) => {
 
     return(

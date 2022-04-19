@@ -1,8 +1,5 @@
 import React from 'react';
 
-//stylesheets
-import '../../assets/css/_circlebar.scss';
-
 const ClockBG = ({bg}) => { 
 
     let url = "";

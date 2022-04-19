@@ -10,6 +10,9 @@ import ClockBG from './components/Clock/ClockBG';
 //database
 import {hours} from './components/Clock/data/hours';
 
+//stylesheet
+import '../src/assets/css/_base.scss';
+
 function App() {
   const svgClass = classNames('clock', 'projects_clock')
   return (

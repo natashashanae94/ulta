@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-//stylesheet
-import '../../assets/css/_circlebar.scss';
-
 const ClockHour = ({time, hourClick, transitionState}) => {
 
     //Detect if the mouse approaches an hour dot

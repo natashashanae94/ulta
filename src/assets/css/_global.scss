@@ -1,0 +1,38 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    background-repeat: no-repeat;
+}
+
+//GRID
+.w-xs-50 {
+    width: 50%;
+}
+
+.w-xs-100 {
+    width: 100%;
+}
+
+.w-xs-200 {
+    width: 200%;
+}
+
+.h-xs-100 {
+    height: 100%;
+}
+
+//COLOR
+.color-white {
+    color: #fff;
+}
+
+//GLOBAL STYLES
+html {
+    overflow: visible;
+}
+
+body {
+    background: #000;
+}
