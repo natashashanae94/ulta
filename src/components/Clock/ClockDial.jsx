@@ -65,7 +65,7 @@ const ClockDial = props => {
     }
   
     useEffect(() => {
-      console.log(offset, progressBar);
+      //console.log(offset, progressBar);
       if (progressBar < progress) {
         if(hover) return;
         else if(trans === true) {
