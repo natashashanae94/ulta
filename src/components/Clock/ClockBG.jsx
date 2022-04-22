@@ -9,8 +9,7 @@ const ClockBG = ({bg}) => {
             <div className="projects__panel projects__panel__right"></div>
             <div className="projects">
 
-                {bg.map((hour, index) => {
-                    return (
+                {bg.map((hour, index) => (
                         
                     <React.Fragment key={index}>
                         <article className="project w-xs-100 h-xs-100 clearfix">
@@ -36,8 +35,8 @@ const ClockBG = ({bg}) => {
                             </div>
                         </article>
                     </React.Fragment>
-                    );
-                })}
+           
+                ))}
 
             </div>
         </>
