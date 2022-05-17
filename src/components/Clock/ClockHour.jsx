@@ -8,6 +8,7 @@ const ClockHour = ({time, hourClick, transitionState}) => {
     const [click, setClick] = useState(false);
     const [clickedHour, setClickedHour] = useState("")
 
+
     const handleFocusEvent = (event) => {
         //identify the name of the hour dot; print console value.
         let obj = event.target.dataset.info;
@@ -20,18 +21,31 @@ const ClockHour = ({time, hourClick, transitionState}) => {
         setTargetHour(currentHour);  
     }
 
+    // const handleActiveClass = (selectedHour) => {
+    //     console.log(selectedHour);
+    //     selectedHour.classList.add('active');
+
+    //     var elems = document.querySelector(".active");
+    //     console.log(elems);
+    //     if(elems !== null) {
+    //         elems.classList.remove("active");
+    //     }
+    //       selectedHour.target.className = "active";
+    // }
+
     const handleLeaveFocusEvent = (event) => {
         setFocus(false);
         setTargetHour("");
     
     }
 
-    const handleClickEvent = (event) => {
+    const handleClickEvent = (event, index) => {
         setClick(true);
     
         //Variables
         let currentHour = event.target.getAttribute("data-info");
-        //let fillCircle = document.querySelector(`.clock__dial__hour__circle[data-info='${currentHour}']`);
+        //let selectedHour = document.querySelector(`.${currentHour}`);
+        //handleActiveClass(selectedHour);
 
         //Set current hour to 'clicked hour'
         setClickedHour(currentHour);
@@ -46,14 +60,14 @@ const ClockHour = ({time, hourClick, transitionState}) => {
     
 
         bigCircle.addEventListener('transitionend', function() {
-            console.log('transitionend ended');
+            //console.log('transitionend ended');
         });
 
         transitionState();
         
         //Get the progress value from the current 'clicked hour', then send that prop value back
         let currentHourProgress = event.target.getAttribute("progress");
-        console.log(currentHourProgress);
+        //console.log(currentHourProgress);
         hourClick(parseInt(currentHourProgress));
 
     }
@@ -72,7 +86,7 @@ const ClockHour = ({time, hourClick, transitionState}) => {
                 <circle
                     onMouseEnter={(e) => handleFocusEvent(e)}
                     onMouseLeave={(e) => handleLeaveFocusEvent(e)}
-                    onClick={(e) => handleClickEvent(e)}
+                    onClick={(e) => handleClickEvent(e, index)}
 
                     className="clock__dial__hour" 
                     progress={hour.progress}

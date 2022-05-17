@@ -12,7 +12,7 @@ const ClockBG = ({bg}) => {
                 {bg.map((hour, index) => (
                         
                     <React.Fragment key={index}>
-                        <article className="project w-xs-100 h-xs-100 clearfix">
+                        <article className={"project w-xs-100 h-xs-100 clearfix " + hour.name}>
                             <div className="project__panel project__content w-xs-50 h-xs-100 color-white" style={{ backgroundColor: `${hour.bgColor}` }}>
                                 <div className="project__content__container display-xs-table w-xs-200 w-sm-100 h-xs-100">
                                     <div className="display-xs-table-cell h-xs-100 valign-xs-middle valign-sm-bottom">

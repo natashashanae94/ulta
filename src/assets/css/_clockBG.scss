@@ -27,6 +27,10 @@ body {
         height: -webkit-calc(100vh - 165px);
         height: calc(100vh - 165px);
     }
+
+    .projects .project:not(:last-of-type) {
+        margin-bottom: 30px;
+    }
 }
 
 @media (min-width: 992px) {
